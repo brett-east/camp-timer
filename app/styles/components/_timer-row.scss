@@ -1,0 +1,16 @@
+table {
+  width: 100%;
+  tr {
+    border: 1px solid #02cc7b;
+  }
+  th {
+    color: #fff;
+    background-color: #02cc7b;
+  }
+  td {
+    background-color: #fff;
+  }
+  th, td {
+    padding: 1rem;
+  }
+}

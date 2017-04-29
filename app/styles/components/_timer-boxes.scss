@@ -1,0 +1,15 @@
+.current-container, .manual-play-container {
+  padding: 1rem 2rem;
+  border-right: 1px solid lighten(#1d1f20, 15);
+  border-bottom: 1px solid lighten(#1d1f20, 15);
+  height: 15rem;
+  background-color: lighten(#1d1f20, 10);
+  h2, p  {
+    color: #fff;
+  }
+}
+
+.current-time {
+  font-size: 3rem;
+  font-weight: bold;
+}
