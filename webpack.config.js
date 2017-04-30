@@ -4,7 +4,8 @@ var path = require('path');
 module.exports = {
   entry: [
     'script-loader!jquery/dist/jquery.min.js',
-    'script-loader!foundation-sites/dist/js/foundation.min.js',
+    'script-loader!tether/dist/js/tether.min.js',
+    'script-loader!bootstrap/dist/js/bootstrap.min.js',
     './app/app.jsx'
   ],
   externals: {
@@ -51,7 +52,7 @@ module.exports = {
           loader: "sass-loader",
           options: {
             includePaths: [
-              path.resolve(__dirname, './node_modules/foundation-sites/scss')
+              path.resolve(__dirname, 'node_modules/bootstrap/scss')
             ]
           }
         }]

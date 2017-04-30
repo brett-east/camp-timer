@@ -5,9 +5,6 @@ var {Route, Router, IndexRoute, hashHistory} = require('react-router');
 import TimerApp from 'TimerApp';
 
 
-// Load foundation
-$(document).foundation();
-
 // App.css
 require('applicationStyles');
 
