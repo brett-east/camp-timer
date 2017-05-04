@@ -5,21 +5,17 @@ import TableRow from 'TableRow';
 class TimesList extends React.Component {
   constructor(props) {
     super(props);
+    this.handleAddRow = this.handleAddRow.bind(this);
   }
 
-  addRow() {
-    // get the rows
-    // var rows = ;
-    // get the current row
-    // split the existing rows
-    // push a new row in the mix
-
+  handleAddRow() {
+    this.props.handleAddRow()
   }
   render() {
     var {rows} = this.props;
     var renderTimerRows = () => {
       return rows.map((row) => {
-        return <TableRow key={row.id} {...row}/>
+        return <TableRow key={row.id} {...row} handleAddRow={this.handleAddRow}/>
       });
     };
     return(

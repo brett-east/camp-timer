@@ -3,9 +3,13 @@ import React from 'react';
 class TableRow extends React.Component {
   constructor(props){
     super(props);
+    this.addRow = this.addRow.bind(this);
+  }
+  addRow() {
+    this.props.handleAddRow();
   }
   render() {
-    var {time, sound, enabled } = this.props;
+    var {time, sound, enabled} = this.props;
     return (
       <tr>
         <td>
@@ -28,7 +32,7 @@ class TableRow extends React.Component {
           <button>remove</button>
         </td>
         <td>
-          <button>add</button>
+          <button onClick={this.addRow}>add</button>
         </td>
       </tr>
     )
