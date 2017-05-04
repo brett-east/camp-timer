@@ -2,7 +2,7 @@ import React from 'react';
 
 import TableRow from 'TableRow';
 
-class TimesTable extends React.Component {
+class TimesList extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -42,4 +42,4 @@ class TimesTable extends React.Component {
 }
 
 
-export default TimesTable;
+export default TimesList;

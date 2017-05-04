@@ -3,7 +3,7 @@ import React from 'react';
 import CurrentTime from 'CurrentTime';
 import ManualTime from 'ManualTime';
 import SavedList from 'SavedList';
-import TimesTable from 'TimesTable';
+import TimesList from 'TimesList';
 
 class TimerApp extends React.Component {
   constructor(props){
@@ -31,7 +31,7 @@ class TimerApp extends React.Component {
           <CurrentTime />
           <ManualTime />
           <div className="col-md-12">
-            <TimesTable rows={rows}/>
+            <TimesList rows={rows}/>
           </div>
         </div>
       </div>
