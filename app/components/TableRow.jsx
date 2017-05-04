@@ -3,21 +3,16 @@ import React from 'react';
 class TableRow extends React.Component {
   constructor(props){
     super(props);
-    //this.state = { rows : 1 };
-    //this.state = { rows: 2 };
   }
   render() {
+    var {time, sound, enabled } = this.props;
     return (
       <tr>
         <td>
-          <input type="number" value={this.props.hour}/>:<input type="number" value={this.props.minute}/>
-          <input type="radio" name={'ampm' + this.props.row} value="am" checked={this.props.ampm === 'am'}/> am
-          &nbsp;&nbsp;&nbsp;
-          <input type="radio" name={'ampm' + this.props.row} value="pm" checked={this.props.ampm === 'pm'}/> pm
-          Row {this.props.row}
+          <input type="number" value={time}/>
         </td>
         <td>
-          <select value={this.props.sound}>
+          <select value={sound}>
             <option value="first_call">Call to Activities</option>
             <option value="reveille">Reveille - Wake Up</option>
             <option value="flag_up">To the Colors - Flag Up</option>
@@ -27,10 +22,10 @@ class TableRow extends React.Component {
           </select>
         </td>
         <td>
-          <input type="checkbox" checked={this.props.enabled} value="enabled"/>
+          <input type="checkbox" checked={enabled} value="enabled"/>
         </td>
         <td>
-          <button onClick>remove</button>
+          <button>remove</button>
         </td>
         <td>
           <button>add</button>

@@ -5,36 +5,8 @@ import TableRow from 'TableRow';
 class TimesTable extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { rows: [{ hour: 2,
-                            minute: 59,
-                            ampm: "am",
-                            sound: "reveille",
-                            enabled: true
-                          },
-                          { hour: 5,
-                            minute: 59,
-                            ampm: "pm",
-                            sound: "first_call",
-                            enabled: false
-                          }],
-                 someOtherState: true,
-                 anotherState: true
-                 };
   }
-  timerRows() {
-    let rowsArray = [];
-    for (let i = 0; i < this.state.rows.length; i++){
-      rowsArray.push(<TableRow key={i}
-                       row={i}
-                       hour={this.state.rows[i].hour}
-                       minute={this.state.rows[i].minute}
-                       ampm={this.state.rows[i].ampm}
-                       sound={this.state.rows[i].sound}
-                       enabled={this.state.rows[i].enabled}
-                       />);
-    }
-    return rowsArray;
-  }
+
   addRow() {
     // get the rows
     // var rows = ;
@@ -44,6 +16,12 @@ class TimesTable extends React.Component {
 
   }
   render() {
+    var {rows} = this.props;
+    var renderTimerRows = () => {
+      return rows.map((row) => {
+        return <TableRow key={row.id} {...row}/>
+      });
+    };
     return(
       <table>
         <thead>
@@ -56,7 +34,7 @@ class TimesTable extends React.Component {
           </tr>
         </thead>
         <tbody>
-          {this.timerRows()}
+          {renderTimerRows()}
         </tbody>
       </table>
     )
