@@ -1,22 +1,24 @@
 import React from 'react';
+import {connect} from 'react-redux';
+
+import {addRow, removeRow, updateRowTime, updateRowSound, updateRowEnabled} from './../actions/actions';
 
 class TableRow extends React.Component {
   constructor(props){
     super(props);
-    this.addRow = this.addRow.bind(this);
-  }
-  addRow() {
-    this.props.handleAddRow();
   }
   render() {
-    var {time, sound, enabled} = this.props;
+    var {id, time, sound, enabled, dispatch} = this.props;
     return (
       <tr>
         <td>
-          <input type="number" value={time}/>
+          <input type="text" ref="time" value={time} onChange={() => {
+              var time = this.refs.time.value;
+              dispatch(updateRowTime(id, this.refs.time.value));
+            }}/>
         </td>
         <td>
-          <select value={sound}>
+          <select value={sound} ref="sound" onChange={(event)=> dispatch(updateRowSound(id, event.target.value))}>
             <option value="first_call">Call to Activities</option>
             <option value="reveille">Reveille - Wake Up</option>
             <option value="flag_up">To the Colors - Flag Up</option>
@@ -26,17 +28,17 @@ class TableRow extends React.Component {
           </select>
         </td>
         <td>
-          <input type="checkbox" checked={enabled} value="enabled"/>
+          <input type="checkbox" checked={enabled} value="enabled" onChange={() => dispatch(updateRowEnabled(id))}/>
         </td>
         <td>
-          <button>remove</button>
+          <button onClick={() => dispatch(removeRow(id))}>remove</button>
         </td>
         <td>
-          <button onClick={this.addRow}>add</button>
+          <button onClick={() => dispatch(addRow())}>add</button>
         </td>
       </tr>
     )
   }
 }
 
-export default TableRow;
+export default connect(state => state)(TableRow);

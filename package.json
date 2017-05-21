@@ -15,8 +15,12 @@
     "express": "^4.15.2",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
+    "react-redux": "^5.0.4",
     "react-router": "^4.1.1",
-    "tether": "^1.4.0"
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.2.0",
+    "tether": "^1.4.0",
+    "uuid": "^3.0.1"
   },
   "devDependencies": {
     "babel-core": "^6.5.1",

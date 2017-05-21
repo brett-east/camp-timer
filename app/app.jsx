@@ -1,8 +1,10 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var {Route, Router, IndexRoute, hashHistory} = require('react-router');
+
+import {Provider} from 'react-redux';
 
 import TimerApp from 'TimerApp';
+import {store} from './store/configureStore';
 
 
 // App.css
@@ -11,6 +13,8 @@ require('applicationStyles');
 
 
 ReactDOM.render(
-    <TimerApp />,
+  <Provider store={store}>
+    <TimerApp />
+  </Provider>,
   document.getElementById('app')
 );

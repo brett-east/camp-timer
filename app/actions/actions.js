@@ -1,31 +1,41 @@
-// row actions
-/// addRow
-/// removeRow
-/// updateRow
-
 export var addRow = () => {
   return {
-      type: 'ADD_ROW'
-      row: {
-        id: 'abc',
-        time: '1250',
-        sound: 'reveille',
-        enabled: true
-      }
-    };
+    type: 'ADD_ROW',
+    row: {
+      		id: 1,
+      		time: 1250,
+          sound: "reveille",
+          enabled: true
+         }
+  }
 };
 
-export var removeRow = (row) => {
+export var removeRow = (id) => {
   return {
     type: 'REMOVE_ROW',
-    row.id
+    id
   }
 };
 
-export var updateRow = (row, update) => {
+export var updateRowTime = (id, time) => {
   return {
-    type: 'UPDATE_ROW',
-    row,
-    update
+    type: 'UPDATE_ROW_TIME',
+    id,
+    time
   }
 };
+
+export var updateRowEnabled = (id) => {
+  return {
+    type: 'UPDATE_ROW_ENABLED',
+    id
+  }
+};
+
+export var updateRowSound = (id, sound) => {
+  return {
+    type: 'UPDATE_ROW_SOUND',
+    id,
+    sound
+  }
+}

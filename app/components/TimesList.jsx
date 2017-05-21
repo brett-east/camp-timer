@@ -1,4 +1,5 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
 import TableRow from 'TableRow';
 
@@ -15,7 +16,7 @@ class TimesList extends React.Component {
     var {rows} = this.props;
     var renderTimerRows = () => {
       return rows.map((row) => {
-        return <TableRow key={row.id} {...row} handleAddRow={this.handleAddRow}/>
+        return <TableRow key={row.id} {...row} />
       });
     };
     return(
@@ -38,4 +39,4 @@ class TimesList extends React.Component {
 }
 
 
-export default TimesList;
+export default connect(state => state)(TimesList);
