@@ -1,9 +1,10 @@
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import { rowReducer } from './../reducers/reducers.js';
+import { rowReducer, currentTimeReducer } from 'reducers';
 
 var reducer = combineReducers({
-  rows: rowReducer
+  rows: rowReducer,
+  date: currentTimeReducer
 });
 
 export var store = createStore(reducer, compose(

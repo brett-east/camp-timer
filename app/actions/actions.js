@@ -38,4 +38,10 @@ export var updateRowSound = (id, sound) => {
     id,
     sound
   }
-}
+};
+
+export var updateCurrentTime = () => {
+  return {
+    type: 'UPDATE_CURRENT_TIME'
+  }
+};

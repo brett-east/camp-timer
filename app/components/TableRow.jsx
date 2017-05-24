@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {addRow, removeRow, updateRowTime, updateRowSound, updateRowEnabled} from './../actions/actions';
+import {addRow, removeRow, updateRowTime, updateRowSound, updateRowEnabled} from 'actions';
 
 class TableRow extends React.Component {
   constructor(props){

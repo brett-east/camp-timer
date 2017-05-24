@@ -1,4 +1,5 @@
 import uuid from 'uuid';
+var moment = require('moment');
 
 var defaultState = [
     {
@@ -59,4 +60,14 @@ export var rowReducer = (state = defaultState, action) => {
     default:
       return state;
 	}
+}
+
+
+export var currentTimeReducer = ( state = new moment(), action) => {
+  switch (action.type) {
+    case 'UPDATE_CURRENT_TIME':
+      return new moment();
+    default:
+      return state;
+  }
 }
