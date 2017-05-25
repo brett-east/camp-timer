@@ -8,9 +8,19 @@ class CurrentTime extends React.Component {
   constructor(props){
     super(props);
   }
+  componentWillReceiveProps() {
+    var { date, rows } = this.props;
+    rows.forEach((row) => {
+      if (moment(date).isSame(moment(row.time, 'h:mm a').toDate(), 'second')) {
+        alert('Yee ha'); // play sounds here
+      }
+    });
+  }
+
   componentDidMount() {
-    this.timerID = setInterval(
-      () => this.props.dispatch(updateCurrentTime()),
+    this.timerID = setInterval(() => {
+      this.props.dispatch(updateCurrentTime());
+    },
       1000
     );
   }
@@ -34,6 +44,7 @@ class CurrentTime extends React.Component {
 
 export default connect((state) => {
   return {
-    date: state.date
+    date: state.date,
+    rows: state.rows
   }
 })(CurrentTime);
