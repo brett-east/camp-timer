@@ -20,9 +20,7 @@ class CurrentTime extends React.Component {
   }
 
   render() {
-    //var getTime = () => moment().format("h:mm:ss a");
     var { date } = this.props;
-    console.log(this.props);
     return (
       <div className="col-md-6">
         <div className="current-container">

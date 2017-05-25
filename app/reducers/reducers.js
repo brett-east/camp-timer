@@ -26,15 +26,28 @@ export var rowReducer = (state = defaultState, action) => {
       return state.filter((row) => row.id !== action.id);
     case 'UPDATE_ROW_TIME':
       return state.map((row) => {
+        var time = action.time;
         if(row.id === action.id) {
           return {
             ...row,
-            time: action.time
+            time
           };
         } else {
           return row;
         }
       });
+    case 'VALIDATE_TIME':
+    return state.map((row) => {
+      var time = (moment(row.time, ['hmm a', 'h:mm a', 'HHmm']).format('h:mm a'));
+      if(row.id === action.id) {
+        return {
+          ...row,
+          time
+        };
+      } else {
+        return row;
+      }
+    });
     case 'UPDATE_ROW_ENABLED':
       return state.map((row) => {
         if(row.id === action.id) {

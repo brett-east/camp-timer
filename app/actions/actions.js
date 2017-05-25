@@ -45,3 +45,10 @@ export var updateCurrentTime = () => {
     type: 'UPDATE_CURRENT_TIME'
   }
 };
+
+export var validateTime = (id) => {
+  return {
+    type: 'VALIDATE_TIME',
+    id
+  }
+}

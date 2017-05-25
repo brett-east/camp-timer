@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {addRow, removeRow, updateRowTime, updateRowSound, updateRowEnabled} from 'actions';
+import {addRow, removeRow, updateRowTime, updateRowSound, updateRowEnabled, validateTime} from 'actions';
 
 class TableRow extends React.Component {
   constructor(props){
@@ -13,9 +13,8 @@ class TableRow extends React.Component {
       <tr>
         <td>
           <input type="text" ref="time" value={time} onChange={() => {
-              var time = this.refs.time.value;
               dispatch(updateRowTime(id, this.refs.time.value));
-            }}/>
+            }} onBlur={() => dispatch(validateTime(id))}/>
         </td>
         <td>
           <select value={sound} ref="sound" onChange={(event)=> dispatch(updateRowSound(id, event.target.value))}>
