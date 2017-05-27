@@ -6,11 +6,6 @@ import TableRow from 'TableRow';
 class TimesList extends React.Component {
   constructor(props) {
     super(props);
-    this.handleAddRow = this.handleAddRow.bind(this);
-  }
-
-  handleAddRow() {
-    this.props.handleAddRow()
   }
   render() {
     var {rows} = this.props;
