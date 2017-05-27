@@ -1,16 +1,7 @@
 import uuid from 'uuid';
 var moment = require('moment');
 
-var defaultState = [
-    {
-      id: uuid(),
-      time: '',
-      sound: 'first_call',
-      enabled: true
-    }
-  ];
-
-export var rowReducer = (state = defaultState, action) => {
+export var rowReducer = (state = [], action) => {
   switch (action.type) {
     case 'ADD_ROW':
       return [
