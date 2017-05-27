@@ -51,4 +51,10 @@ export var validateTime = (id) => {
     type: 'VALIDATE_TIME',
     id
   }
-}
+};
+
+export var sortRows = () => {
+  return {
+    type: 'SORT_ROWS'
+  }
+};

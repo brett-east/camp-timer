@@ -4,7 +4,7 @@ var moment = require('moment');
 var defaultState = [
     {
       id: uuid(),
-      time: null,
+      time: '',
       sound: 'first_call',
       enabled: true
     }
@@ -17,7 +17,7 @@ export var rowReducer = (state = defaultState, action) => {
       	...state,
           {
             id: uuid(),
-          	time: null,
+          	time: '',
             sound: 'first_call',
             enabled: true
         	}
@@ -68,6 +68,19 @@ export var rowReducer = (state = defaultState, action) => {
           };
         } else {
           return row;
+        }
+      });
+    case 'SORT_ROWS':
+      let newState = state;
+      return newState.sort((a, b) => {
+        if (moment(a.time, 'h:mm a')
+              .isBefore(moment(b.time, 'h:mm a').toDate())) {
+          return -1;
+        } else if (moment(a.time, 'h:mm a')
+              .isAfter(moment(b.time, 'h:mm a').toDate())) {
+          return 1;
+        } else {
+          return 0;
         }
       });
     default:

@@ -17,6 +17,7 @@ class TimerApp extends React.Component {
           <CurrentTime />
           <ManualTime />
           <div className="col-md-12">
+            <SavedList />
             <TimesList />
           </div>
         </div>
