@@ -4,8 +4,8 @@ var moment = require('moment');
 var defaultState = [
     {
       id: uuid(),
-      time: 0,
-      sound: '',
+      time: null,
+      sound: 'first_call',
       enabled: true
     }
   ];
@@ -17,8 +17,8 @@ export var rowReducer = (state = defaultState, action) => {
       	...state,
           {
             id: uuid(),
-          	time: 0,
-            sound: '',
+          	time: null,
+            sound: 'first_call',
             enabled: true
         	}
         ];

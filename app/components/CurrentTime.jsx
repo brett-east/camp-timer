@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 var moment = require('moment');
+import 'howler';
 
 import { updateCurrentTime } from 'actions';
 
@@ -12,7 +13,10 @@ class CurrentTime extends React.Component {
     var { date, rows } = this.props;
     rows.forEach((row) => {
       if (moment(date).isSame(moment(row.time, 'h:mm a').toDate(), 'second')) {
-        alert('Yee ha'); // play sounds here
+        let sound = new Howl({
+          src: [`/assets/sounds/${row.sound}.mp3`]
+        });
+        sound.play();
       }
     });
   }

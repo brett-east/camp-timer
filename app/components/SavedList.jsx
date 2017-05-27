@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 class SavedList extends React.Component {
   constructor(props){
@@ -20,4 +21,4 @@ class SavedList extends React.Component {
   }
 }
 
-export default SavedList;
+export default connect(state => state)(SavedList);
