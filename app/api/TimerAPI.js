@@ -1,4 +1,5 @@
 import uuid from 'uuid';
+import path from 'path';
 
 export var setTimes = (rows) => {
   try {
@@ -34,4 +35,39 @@ export var getTimes = () => {
         }]
       };
   }
+};
+
+// TODO: this will need to go into a real reducers at some point
+export var initialSounds = {
+  sounds: [{
+    id: uuid(),
+    name: 'Call to activities',
+    value: 'first_call',
+    path: path.join(__dirname, 'assets/sounds/first_call.mp3')
+  },{
+    id: uuid(),
+    name: 'Reveille - wake up',
+    value: 'reveille',
+    path: path.join(__dirname, 'assets/sounds/reveille.mp3')
+  },{
+    id: uuid(),
+    name: 'To the colors - flag up',
+    value: 'flag_up',
+    path: path.join(__dirname, 'assets/sounds/flag_up.mp3')
+  },{
+    id: uuid(),
+    name: 'Start sticks',
+    value: 'sticks',
+    path: path.join(__dirname, 'assets/sounds/sticks.mp3')
+  },{
+    id: uuid(),
+    name: 'Retreat - flag down',
+    value: 'flag_down',
+    path: path.join(__dirname, 'assets/sounds/flag_down.mp3')
+  },{
+    id: uuid(),
+    name: 'Taps',
+    value: 'taps',
+    path: path.join(__dirname, 'assets/sounds/taps.mp3')
+  }]
 };

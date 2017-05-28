@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import CurrentTime from 'CurrentTime';
-import ManualTime from 'ManualTime';
+import ManualSound from 'ManualSound';
 import SavedList from 'SavedList';
 import TimesList from 'TimesList';
 
@@ -15,7 +15,7 @@ class TimerApp extends React.Component {
       <div className="container">
         <div className="row">
           <CurrentTime />
-          <ManualTime />
+          <ManualSound />
           <div className="col-md-12">
             <SavedList />
             <TimesList />

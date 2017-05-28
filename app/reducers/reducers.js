@@ -88,3 +88,10 @@ export var currentTimeReducer = ( state = new moment(), action) => {
       return state;
   }
 }
+
+export var soundsReducer = (state = [], action) => {
+  switch (action.type) {
+    default:
+      return state;
+  }
+}
