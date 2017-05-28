@@ -1,22 +1,25 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
+import SoundsDropdown from 'SoundsDropdown';
+import { updateManualSound } from 'actions';
+
+// TODO: store this change in localStorage or something
 class ManualSound extends React.Component {
   constructor(props){
     super(props);
   }
+  handleChange(event) {
+    var {dispatch, manualSound} = this.props;
+    dispatch(updateManualSound(event.target.value));
+  }
   render() {
+    let {manualSound} = this.props;
     return (
       <div className="col-md-6">
       <div className="manual-play-container">
         <h2>Play Manual Sound</h2>
-          <select className="manual_sound_option">
-            <option value="first_call">Call to Activities</option>
-            <option value="reveille">Reveille - Wake Up</option>
-            <option value="flag_up">To the Colors - Flag Up</option>
-            <option value="sticks">Start Sticks</option>
-            <option value="flag_down">Retreat - Flag Down</option>
-            <option value="taps">Taps</option>
-          </select>
+          <SoundsDropdown value={manualSound} className="manual_sound_option" onChange={this.handleChange.bind(this)}/>
         <button className="play_manual_sound">Play</button>
         <button className="pause_manual_sound">Pause</button>
       </div>
@@ -25,4 +28,9 @@ class ManualSound extends React.Component {
   }
 }
 
-export default ManualSound;
+export default connect((state, props) => {
+  return {
+    manualSound: state.manualSound,
+    ...props
+  }
+})(ManualSound);

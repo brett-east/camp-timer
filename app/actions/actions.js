@@ -58,3 +58,10 @@ export var sortRows = () => {
     type: 'SORT_ROWS'
   }
 };
+
+export var updateManualSound = (sound) => {
+  return {
+    type: 'UPDATE_MANUAL_SOUND',
+    sound
+  }
+}

@@ -1,7 +1,7 @@
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 
-import { rowReducer, currentTimeReducer, soundsReducer } from 'reducers';
+import { rowReducer, currentTimeReducer, soundsReducer, manualSoundReducer } from 'reducers';
 import { getTimes, initialSounds } from 'TimerAPI';
 
 let initialRows = getTimes();
@@ -14,7 +14,8 @@ let initialState = {
 var reducer = combineReducers({
   rows: rowReducer,
   date: currentTimeReducer,
-  sounds: soundsReducer
+  sounds: soundsReducer,
+  manualSound: manualSoundReducer
 });
 
 export var store = createStore(reducer, initialState, compose(

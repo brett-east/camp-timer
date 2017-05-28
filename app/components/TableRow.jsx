@@ -1,11 +1,16 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
+import SoundsDropdown from 'SoundsDropdown';
 import {addRow, removeRow, updateRowTime, updateRowSound, updateRowEnabled, validateTime} from 'actions';
 
 class TableRow extends React.Component {
   constructor(props){
     super(props);
+  }
+  handleChange(event) {
+    var {dispatch, id} = this.props;
+    dispatch(updateRowSound(id, event.target.value));
   }
   render() {
     var {id, time, sound, enabled, dispatch} = this.props;
@@ -17,14 +22,7 @@ class TableRow extends React.Component {
             }} onBlur={() => dispatch(validateTime(id))}/>
         </td>
         <td>
-          <select value={sound} ref="sound" onChange={(event)=> dispatch(updateRowSound(id, event.target.value))}>
-            <option value="first_call">Call to Activities</option>
-            <option value="reveille">Reveille - Wake Up</option>
-            <option value="flag_up">To the Colors - Flag Up</option>
-            <option value="sticks">Start Sticks</option>
-            <option value="flag_down">Retreat - Flag Down</option>
-            <option value="taps">Taps</option>
-          </select>
+          <SoundsDropdown value={sound} onChange={this.handleChange.bind(this)}/>
         </td>
         <td>
           <input type="checkbox" checked={enabled} value="enabled" onChange={() => dispatch(updateRowEnabled(id))}/>

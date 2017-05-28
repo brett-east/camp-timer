@@ -7,13 +7,13 @@ class TimesList extends React.Component {
   constructor(props) {
     super(props);
   }
-  render() {
+  renderTimerRows = () => {
     var {rows} = this.props;
-    var renderTimerRows = () => {
-      return rows.map((row) => {
-        return <TableRow key={row.id} {...row} />
-      });
-    };
+    return rows.map((row) => {
+      return <TableRow key={row.id} {...row} />
+    });
+  }
+  render() {
     return(
       <table>
         <thead>
@@ -26,7 +26,7 @@ class TimesList extends React.Component {
           </tr>
         </thead>
         <tbody>
-          {renderTimerRows()}
+          {this.renderTimerRows()}
         </tbody>
       </table>
     )

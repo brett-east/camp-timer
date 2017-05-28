@@ -95,3 +95,12 @@ export var soundsReducer = (state = [], action) => {
       return state;
   }
 }
+
+export var manualSoundReducer = (state = '', action) => {
+  switch (action.type) {
+    case 'UPDATE_MANUAL_SOUND':
+      return action.sound;
+    default:
+      return state;
+  }
+}

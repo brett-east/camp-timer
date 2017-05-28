@@ -12,7 +12,7 @@ class CurrentTime extends React.Component {
   componentWillReceiveProps() {
     var { date, rows } = this.props;
     rows.forEach((row) => {
-      if (moment(date).isSame(moment(row.time, 'h:mm a').toDate(), 'second') && row.enabled) {
+      if (moment(date).isSame(moment(row.time, 'h:mm a').toDate(), 'second') && row.enabled && row.sound) {
         let sound = new Howl({ // TODO: move this into a helper function, maybe pass in 'row.enabled' as an argument
           src: [`/assets/sounds/${row.sound}.mp3`]
         });
