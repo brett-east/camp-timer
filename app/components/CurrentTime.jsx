@@ -4,19 +4,20 @@ var moment = require('moment');
 import 'howler';
 
 import { updateCurrentTime } from 'actions';
+import { playSound } from './../utils/playSound';
 
 class CurrentTime extends React.Component {
   constructor(props){
     super(props);
   }
   componentWillReceiveProps() {
-    var { date, rows } = this.props;
+    var { date, rows, sounds } = this.props;
     rows.forEach((row) => {
       if (moment(date).isSame(moment(row.time, 'h:mm a').toDate(), 'second') && row.enabled && row.sound) {
-        let sound = new Howl({ // TODO: move this into a helper function, maybe pass in 'row.enabled' as an argument
-          src: [`/assets/sounds/${row.sound}.mp3`]
-        });
-        sound.play();
+        let soundPath = sounds.filter((sound) => {
+          return sound.value === row.sound;
+        })[0].path; // TODO: Can I pull this into a helper function getSoundPath(row,sounds) // maybe i just needs row
+        playSound(soundPath);
       }
     });
   }
@@ -49,6 +50,7 @@ class CurrentTime extends React.Component {
 export default connect((state) => {
   return {
     date: state.date,
-    rows: state.rows
+    rows: state.rows,
+    sounds: state.sounds
   }
 })(CurrentTime);

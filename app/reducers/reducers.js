@@ -96,10 +96,10 @@ export var soundsReducer = (state = [], action) => {
   }
 }
 
-export var manualSoundReducer = (state = '', action) => {
+export var manualSoundReducer = (state = {}, action) => {
   switch (action.type) {
     case 'UPDATE_MANUAL_SOUND':
-      return action.sound;
+      return action.sound
     default:
       return state;
   }
