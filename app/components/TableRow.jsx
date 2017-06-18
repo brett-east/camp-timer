@@ -30,9 +30,6 @@ class TableRow extends React.Component {
         <td>
           <button onClick={() => dispatch(removeRow(id))}>remove</button>
         </td>
-        <td>
-          <button onClick={() => dispatch(addRow())}>add</button>
-        </td>
       </tr>
     )
   }

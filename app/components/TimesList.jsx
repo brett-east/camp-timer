@@ -22,7 +22,6 @@ class TimesList extends React.Component {
             <th>Sound</th>
             <th>Enabled</th>
             <th>Remove row</th>
-            <th>Add row</th>
           </tr>
         </thead>
         <tbody>
