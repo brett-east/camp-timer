@@ -65,3 +65,10 @@ export var updateManualSound = (sound) => {
     sound
   }
 }
+
+export var setCurrentlyPlaying = (sound) => {
+  return {
+    type: 'SET_CURRENTLY_PLAYING',
+    sound
+  }
+};

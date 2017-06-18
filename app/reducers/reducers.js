@@ -104,3 +104,12 @@ export var manualSoundReducer = (state = {}, action) => {
       return state;
   }
 }
+
+export var currentlyPlayingReducer = (state = null, action) => {
+  switch (action.type) {
+    case 'SET_CURRENTLY_PLAYING':
+      return action.sound
+    default:
+      return state;
+  }
+}

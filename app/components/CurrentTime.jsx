@@ -3,21 +3,22 @@ import { connect } from 'react-redux';
 var moment = require('moment');
 import 'howler';
 
-import { updateCurrentTime } from 'actions';
-import { playSound } from './../utils/playSound';
+import { updateCurrentTime, setCurrentlyPlaying } from 'actions';
+import { playSound, stopSound } from './../utils/playSound';
 
 class CurrentTime extends React.Component {
   constructor(props){
     super(props);
   }
   componentWillReceiveProps() {
-    var { date, rows, sounds } = this.props;
+    var { date, rows, sounds, dispatch, currentlyPlaying } = this.props;
     rows.forEach((row) => {
       if (moment(date).isSame(moment(row.time, 'h:mm a').toDate(), 'second') && row.enabled && row.sound) {
         let soundPath = sounds.filter((sound) => {
           return sound.value === row.sound;
         })[0].path; // TODO: Can I pull this into a helper function getSoundPath(row,sounds) // maybe i just needs row
-        playSound(soundPath);
+        let currentSound = playSound(soundPath, currentlyPlaying);
+        dispatch(setCurrentlyPlaying(currentSound));
       }
     });
   }
@@ -47,10 +48,12 @@ class CurrentTime extends React.Component {
   }
 }
 
-export default connect((state) => {
+export default connect((state, props) => {
   return {
     date: state.date,
     rows: state.rows,
-    sounds: state.sounds
+    sounds: state.sounds,
+    currentlyPlaying: state.currentlyPlaying,
+    ...props
   }
 })(CurrentTime);

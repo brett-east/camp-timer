@@ -12,7 +12,7 @@ class SoundsDropdown extends React.Component {
     var { className, onChange, value } = this.props;
     return (
       <select className={className} onChange={onChange} value={value}>
-        <option value={undefined}>--</option>
+        <option value={null}>--</option>
         {this.renderSoundOptions()}
       </select>
     )
