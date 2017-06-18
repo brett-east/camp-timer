@@ -32,7 +32,8 @@ module.exports = {
       applicationStyles: 'app/styles/app.scss',
       actions: 'app/actions/actions.js',
       reducers: 'app/reducers/reducers.js',
-      TimerAPI: 'app/api/TimerAPI.js'
+      TimerAPI: 'app/api/TimerAPI.js',
+      auth: 'app/modules/auth.js'
     },
     extensions: ['.js', '.jsx']
   },

@@ -1,9 +1,14 @@
-@import "base/variables";
-
 // bootstrap
 @import "bootstrap";
+
+@import "base/variables";
+@import "base/base";
 
 // components
 @import "components/body";
 @import "components/timer-boxes";
 @import "components/timer-row";
+@import "components/page-content";
+@import "components/panel-view";
+@import "components/button";
+@import "components/header";

@@ -6,6 +6,7 @@ import throttle from 'lodash/throttle';
 import TimerApp from 'TimerApp';
 import {store} from './store/configureStore';
 import { setTimes } from 'TimerAPI';
+import { routes } from './routes/routes';
 
 
 // App.css
@@ -21,7 +22,7 @@ store.subscribe(throttle(() => {
 
 ReactDOM.render(
   <Provider store={store}>
-    <TimerApp />
+    {routes}
   </Provider>,
   document.getElementById('app')
 );
