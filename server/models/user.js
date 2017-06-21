@@ -19,7 +19,7 @@ var UserSchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    require: true,
+    required: true,
     minlength: 8
   },
   tokens: [{
@@ -31,6 +31,10 @@ var UserSchema = new mongoose.Schema({
       type: String,
       required: true
     }
+  }],
+  timerLists: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'timerList'
   }]
 });
 

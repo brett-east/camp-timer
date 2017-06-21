@@ -6,12 +6,7 @@ export var rowReducer = (state = [], action) => {
     case 'ADD_ROW':
       return [
       	...state,
-          {
-            id: uuid(),
-          	time: '',
-            sound: 'first_call',
-            enabled: true
-        	}
+        ...action.row
         ];
     case 'REMOVE_ROW':
       return state.filter((row) => row.id !== action.id);
