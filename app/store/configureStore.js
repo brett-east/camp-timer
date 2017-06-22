@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 
 import { currentTimeReducer, soundsReducer, manualSoundReducer, currentlyPlayingReducer } from 'reducers/reducers';
 import { rowReducer } from 'reducers/rowReducer';
-import { currentListReducer, savedListsReducer } from 'reducers/initReducer';
+import { currentListReducer, savedListsReducer } from 'reducers/listsReducer';
 import { initialSounds } from 'TimerAPI';
 
 let initialState = {
@@ -21,6 +21,6 @@ var reducer = combineReducers({
 });
 
 export var store = createStore(reducer, initialState, compose(
-    applyMiddleware(thunk),
-    window.devToolsExtension ? window.devToolsExtension() : f => f
-  ));
+  applyMiddleware(thunk),
+  window.devToolsExtension ? window.devToolsExtension() : f => f
+));

@@ -8,7 +8,12 @@ class TimesList extends React.Component {
     super(props);
   }
   renderTimerRows = () => {
-    var {rows} = this.props;
+    var { rows, savedList } = this.props;
+    if (!savedList) {
+      return (
+        <p>Start by adding a new day, and then add a row to begin.</p>
+      );
+    }
     return rows.map((row) => {
       return <TableRow key={row.id} {...row} />
     });

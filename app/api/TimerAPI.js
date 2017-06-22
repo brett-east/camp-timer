@@ -2,6 +2,29 @@ import uuid from 'uuid';
 import path from 'path';
 import axios from 'axios';
 
+import { getTokenHeader, deauthenticateUser } from 'auth';
+
+export const addNewList = (name) => {
+  return axios({
+    method: 'post',
+    url: '/api/timerlist',
+    headers: {
+      'Authorization': getTokenHeader(),
+      'Content-Type': 'application/json'
+    },
+    data: {
+      name
+    }
+  }).then((timerList) => {
+    return {
+      _id: timerList.data._id,
+      name: timerList.data.name
+    }
+  }).catch((err) => {
+    return err;
+    console.log('addNewList error:', err);
+  });
+}
 
 export var setTimes = (rows) => {
   try {

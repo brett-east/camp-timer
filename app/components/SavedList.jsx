@@ -1,14 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { sortRows, addRow } from 'actions/actions';
+import { sortRows } from 'actions/actions';
+import { addRow } from 'actions/rowActions';
+import { startAddList } from 'actions/listActions';
 
 class SavedList extends React.Component {
   constructor(props){
     super(props);
+    this.handleAddList = this.handleAddList.bind(this);
+  }
+  handleAddList() {
+    console.log('adding list');
+    this.props.dispatch(startAddList('Default list name'));
   }
   render() {
-    let { dispatch } = this.props;
+    let { dispatch, savedList } = this.props;
     return (
       <div>
         <hr />
@@ -16,10 +23,10 @@ class SavedList extends React.Component {
           <option>Saved list 1</option>
           <option>Saved list 2</option>
         </select>
-        <button onClick={() => dispatch(sortRows())}>Order list</button>
-        <button>Remove current list</button>
-        <button>Add new list</button>
-        <button onClick={() => dispatch(addRow())}>Add new row</button>
+        { savedList && <button onClick={() => dispatch(sortRows())}>Order list</button>}
+        { savedList && <button>Remove current list</button>}
+        <button onClick={this.handleAddList}>Add new list</button>
+        { savedList && <button onClick={() => dispatch(addRow())}>Add new row</button>}
         <hr />
       </div>
     )

@@ -33,6 +33,7 @@ Possible state
 - Then add a new list, and give it a name
   - make that the currentList
   - add that to the mongo TimerList collection
+    - make it get the dropdown list of savedLists !!
 - Add a new row
   - associate that with the mongo TimerRow collection
   - associate the row with the timerList instance
