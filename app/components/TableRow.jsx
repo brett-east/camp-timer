@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import SoundsDropdown from 'SoundsDropdown';
-import {addRow, removeRow, updateRowTime, updateRowSound, updateRowEnabled, validateTime} from 'actions';
+import {addRow, removeRow, updateRowTime, updateRowSound, updateRowEnabled, validateTime} from 'actions/rowActions';
 
 class TableRow extends React.Component {
   constructor(props){

@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import SoundsDropdown from 'SoundsDropdown';
-import { updateManualSound, setCurrentlyPlaying } from 'actions';
+import { updateManualSound, setCurrentlyPlaying } from 'actions/actions';
 import { playSound, stopSound } from './../utils/playSound';
 
 // TODO: store this change in localStorage or something

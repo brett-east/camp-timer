@@ -30,8 +30,8 @@ module.exports = {
     alias: {
       Main: 'app/components/Main.jsx',
       applicationStyles: 'app/styles/app.scss',
-      actions: 'app/actions/actions.js',
-      reducers: 'app/reducers/reducers.js',
+      actions: 'app/actions',
+      reducers: 'app/reducers',
       TimerAPI: 'app/api/TimerAPI.js',
       auth: 'app/modules/auth.js'
     },

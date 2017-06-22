@@ -4,7 +4,7 @@ import { checkAuthenticated } from 'auth';
 
 export const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route {...rest}
-    render={props => ( checkAuthenticated() ?
+    render={props => ( true ? // checkAuthenticated()
       ( <Component {...props}/> ) :
       ( <Redirect to={{pathname: '/login', state: { from: props.location } }}/> )
   )}/>
@@ -12,7 +12,7 @@ export const PrivateRoute = ({ component: Component, ...rest }) => (
 
  export const PublicRoute = ({ component: Component, ...rest }) => (
    <Route {...rest}
-     render={props => ( !checkAuthenticated() ?
+     render={props => ( true ? // !checkAuthenticated()
        ( <Component {...props}/> ) :
        ( <Redirect to={{pathname: '/dashboard', state: { from: props.location } }}/> )
    )}/>

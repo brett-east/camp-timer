@@ -1,13 +1,12 @@
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 
-import { rowReducer, currentTimeReducer, soundsReducer, manualSoundReducer, currentlyPlayingReducer } from 'reducers';
-import { getTimes, initialSounds } from 'TimerAPI';
-
-let initialRows = getTimes();
+import { currentTimeReducer, soundsReducer, manualSoundReducer, currentlyPlayingReducer } from 'reducers/reducers';
+import { rowReducer } from 'reducers/rowReducer';
+import { currentListReducer, savedListsReducer } from 'reducers/initReducer';
+import { initialSounds } from 'TimerAPI';
 
 let initialState = {
-  ...initialRows,
   ...initialSounds
 }
 
@@ -16,7 +15,9 @@ var reducer = combineReducers({
   date: currentTimeReducer,
   sounds: soundsReducer,
   manualSound: manualSoundReducer,
-  currentlyPlaying: currentlyPlayingReducer
+  currentlyPlaying: currentlyPlayingReducer,
+  currentList: currentListReducer,
+  savedLists: savedListsReducer
 });
 
 export var store = createStore(reducer, initialState, compose(

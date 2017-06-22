@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 var moment = require('moment');
 import 'howler';
 
-import { updateCurrentTime, setCurrentlyPlaying } from 'actions';
+import { updateCurrentTime, setCurrentlyPlaying } from 'actions/actions';
 import { playSound, stopSound } from './../utils/playSound';
 
 class CurrentTime extends React.Component {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { sortRows, addRow } from 'actions';
+import { sortRows, addRow } from 'actions/actions';
 
 class SavedList extends React.Component {
   constructor(props){
@@ -17,7 +17,8 @@ class SavedList extends React.Component {
           <option>Saved list 2</option>
         </select>
         <button onClick={() => dispatch(sortRows())}>Order list</button>
-        <button>Save current list</button>
+        <button>Remove current list</button>
+        <button>Add new list</button>
         <button onClick={() => dispatch(addRow())}>Add new row</button>
         <hr />
       </div>

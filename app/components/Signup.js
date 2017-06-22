@@ -2,10 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import validator from 'validator';
+import { connect } from 'react-redux';
 
+import { newUser } from 'actions/initActions';
 import { authenticateUser } from 'auth';
 
-export default class Signup extends React.Component {
+export class Signup extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -13,6 +15,7 @@ export default class Signup extends React.Component {
     };
   }
   onSubmit(e) {
+    let { dispatch } = this.props;
     e.preventDefault();
 
     let email = this.refs.email.value.trim();
@@ -46,6 +49,8 @@ export default class Signup extends React.Component {
         var authToken = res.headers.authorization.split(' ')[1];
         authenticateUser(authToken);
         this.props.history.replace('/dashboard');
+        console.log(res);
+        dispatch(newUser());
       }
     }).catch((err) => {
       if (err.response) {
@@ -83,3 +88,5 @@ export default class Signup extends React.Component {
     );
   }
 };
+
+export default connect(state => state)(Signup);

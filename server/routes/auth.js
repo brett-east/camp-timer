@@ -31,6 +31,15 @@ router.post('/users/login', (req, res) => {
 
   User.findByCredentials(body.email, body.password).then((user) => {
     return user.generateAuthToken().then((token) => {
+
+      if (user.currentList) {
+        let rows = TimerList.findOne({_id: user.currentList._id, _creater: user._id})
+          .populate({ path: 'rows' });
+        let savedLists = user.populate({ path: timerLists });
+        user.rows = rows;
+        user.savedLists = savedLists;
+      }
+
       res.header('Authorization', `Bearer ${token}`).send(user);
     });
   }).catch((err) => {

@@ -35,7 +35,11 @@ var UserSchema = new mongoose.Schema({
   timerLists: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'timerList'
-  }]
+  }],
+  currentList: {
+    type: mongoose.Schema.Types.ObjectId,
+    default: null
+  }
 });
 
 // UserSchema instance methods
